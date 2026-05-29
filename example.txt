@@ -1,0 +1,239 @@
+=== EXAMPLE INTERACTIONS ===
+
+--- Email Writer ---
+You: 1
+Feature: Email Writer
+Email purpose: Announce Q2 sales results to all stakeholders
+Recipient type [stakeholder]: stakeholder
+Tone [formal]: formal
+Research topic (optional): latest market trends 2026
+
+   Using tool: web_search(query=latest market trends 2026)
+   Result: Tech sector showing 18% growth in Q1 2026. AI adoption up 40% YoY...
+
+======================================================================
+OUTPUT
+======================================================================
+Subject: Q2 2026 Sales Performance Update - Stakeholder Briefing
+
+Dear Valued Stakeholders,
+
+I am pleased to share our Q2 2026 performance results, which reflect
+strong execution across all business units during this period.
+
+Our sales figures demonstrate consistent momentum, supported by
+favourable market conditions. The technology sector is currently
+experiencing 18% growth, and our results align well with this
+industry-wide trend.
+
+Q2 highlights include record-breaking revenue in our core product
+lines, expansion into two new regional markets, and a 22% improvement
+in customer retention compared to the same quarter last year.
+
+Looking ahead, we remain focused on sustaining this trajectory through
+continued investment in our team and product offerings.
+
+Best regards,
+[Your Name]
+CEO, [Company Name]
+======================================================================
+
+
+--- Report Generator ---
+You: 2
+Feature: Report Generator
+Report type [sales]: sales
+Time period [Q1 2026]: Q1 2026
+Company name [Your Company]: Acme Corporation
+Data: {"Jan": 50000, "Feb": 65000, "Mar": 70000}
+
+   Using tool: format_report(report_type=sales, period=Q1 2026)
+   Result: {"header": "Q1 2026 Sales Performance Report", "sections": [...]}
+   Using tool: analyze_data(data_string=..., operation=sum)
+   Result: {"result": 185000, "count": 3}
+   Using tool: analyze_data(data_string=..., operation=average)
+   Result: {"result": 61666.67, "count": 3}
+   Using tool: analyze_data(data_string=..., operation=max)
+   Result: {"result": 70000, "label": "Mar", "count": 3}
+   Using tool: calculate(expression=(70000-50000)/50000*100)
+   Result: {"result": 40.0}
+
+======================================================================
+OUTPUT
+======================================================================
+============================================================
+Q1 2026 SALES PERFORMANCE REPORT - ACME CORPORATION
+============================================================
+Date: May 22, 2026
+
+EXECUTIVE SUMMARY
+Q1 2026 delivered strong results with total revenue of $185,000,
+representing a 40% growth from January to March. Average monthly
+revenue stood at $61,667, with March as the highest-performing month.
+
+KEY METRICS
+- Total Revenue:       $185,000
+- Average Monthly:     $61,667
+- Best Month:          March ($70,000)
+- Lowest Month:        January ($50,000)
+- Growth Rate (QoQ):   40%
+
+MONTHLY ANALYSIS
+January:  $50,000  ████████████
+February: $65,000  ████████████████
+March:    $70,000  █████████████████
+
+Revenue increased steadily each month, with the strongest jump
+occurring between January and February (+$15,000 / +30%).
+
+RECOMMENDATIONS
+1. Replicate February strategies in Q2 planning
+2. Investigate January dip to avoid repeat
+3. Set Q2 target of $200,000+ based on growth trajectory
+4. Increase inventory and staffing ahead of Q2 peak
+5. Launch a loyalty incentive to sustain March momentum
+============================================================
+======================================================================
+
+
+--- Meeting Summarizer ---
+You: 3
+Feature: Meeting Summarizer
+Meeting date [May 22, 2026]: May 20, 2026
+Attendees: Sarah, Ahmed, John, Maria
+Paste meeting notes (type END on a new line when done):
+Discussed Q2 marketing campaign. Budget approved for $50k.
+Sarah will lead the campaign. Need to hire 2 designers by next month.
+Launch date set for June 1st. Ahmed to prepare creative brief.
+Next meeting May 27th.
+END
+
+======================================================================
+OUTPUT
+======================================================================
+===========================================
+MEETING SUMMARY
+===========================================
+Date: May 20, 2026
+Attendees: Sarah, Ahmed, John, Maria
+
+SUMMARY
+The team approved the Q2 marketing campaign with a $50,000 budget
+and a June 1st launch date. Roles were assigned and hiring needs
+were identified to support the campaign.
+
+KEY DISCUSSION POINTS
+- Q2 marketing campaign scope and planning
+- Budget allocation and approval ($50,000)
+- Team role assignments for campaign lead
+- Designer hiring requirements and timeline
+- Campaign launch date confirmation
+
+DECISIONS MADE
+1. Campaign budget approved: $50,000
+2. Launch date confirmed: June 1, 2026
+3. Sarah assigned as campaign lead
+
+ACTION ITEMS
+- Sarah: Lead and manage the Q2 marketing campaign -- by June 1
+- HR/John: Hire 2 designers -- by end of May
+- Ahmed: Prepare the creative brief -- ASAP
+
+NEXT MEETING: May 27, 2026
+===========================================
+======================================================================
+
+
+--- Data Analyzer ---
+You: 4
+Feature: Data Analyzer
+Query: What is the average monthly revenue and overall growth rate?
+Data: [50000, 55000, 60000, 65000, 70000, 75000]
+
+   Using tool: analyze_data(data_string=[50000,...,75000], operation=average)
+   Result: {"result": 62500.0, "count": 6}
+   Using tool: analyze_data(data_string=[50000,...,75000], operation=sum)
+   Result: {"result": 375000.0, "count": 6}
+   Using tool: calculate(expression=(75000-50000)/50000*100)
+   Result: {"result": 50.0}
+
+======================================================================
+OUTPUT
+======================================================================
+ANALYSIS RESULTS
+==================
+Average Monthly Revenue: $62,500
+Total Revenue (6 months): $375,000
+Growth Rate:              50%  (from $50,000 to $75,000)
+Monthly Increase:         +$5,000 per month (consistent)
+Trend:                    Steadily increasing
+
+INTERPRETATION
+Revenue shows strong, consistent growth with an increase of $5,000
+every month over 6 months. A 50% overall growth rate is well above
+the industry benchmark of 15-18% for this period.
+
+RECOMMENDATION
+Current growth trajectory is excellent. Consider scaling operations
+and expanding the sales team to meet increasing demand in Q3.
+======================================================================
+
+
+--- Client Communication Drafter ---
+You: 5
+Feature: Client Communication Drafter
+Types: project proposal / status update / response to inquiry / follow-up message
+Communication type [project proposal]: project proposal
+Client name / company: ABC Technologies
+Your name / company: Sarah Khan, Pinnacle Studio
+Tone [professional but friendly]: professional but friendly
+Context: Website redesign project. 3-month timeline. Budget $50,000.
+         We specialize in modern UI/UX and have done 40+ similar projects.
+
+======================================================================
+OUTPUT
+======================================================================
+Dear ABC Technologies Team,
+
+Thank you for considering Pinnacle Studio for your website redesign
+project. We are genuinely excited about the opportunity to transform
+your digital presence and create something truly impactful for your brand.
+
+Having delivered 40+ successful website redesign projects, we bring
+both the expertise and the creative vision needed to elevate your
+online experience. Our process is collaborative, transparent, and
+results-driven -- ensuring you are involved at every key milestone.
+
+For this engagement, we propose a 3-month timeline structured across
+three phases: Discovery & Strategy (Weeks 1-3), Design & Development
+(Weeks 4-10), and Testing & Launch (Weeks 11-12). This approach ensures
+a polished final product delivered within your $50,000 budget.
+
+We would love to schedule a 30-minute discovery call this week to
+discuss your goals, vision, and any current pain points.
+
+Looking forward to the possibility of working together!
+
+Best regards,
+Sarah Khan
+Pinnacle Studio
+======================================================================
+
+
+--- Natural Language (Auto-routing) ---
+You: write an email to our team about the new remote work policy
+   Routing to: EMAIL WRITER
+   Recipient: team | Tone: formal
+
+Assistant: Subject: New Remote Work Policy Update
+Dear Team, I am writing to inform you of our updated remote work policy...
+
+You: what is 15% of 200?
+   Routing to: GENERAL (calculator tool)
+   Using tool: calculate(expression=200*0.15)
+   Result: {"result": 30.0}
+
+Assistant: 15% of 200 is 30.
+
+You: exit
+Goodbye!
